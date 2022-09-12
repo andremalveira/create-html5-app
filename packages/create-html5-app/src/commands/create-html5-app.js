@@ -17,7 +17,8 @@ const command = {
     function end(_app_name, pm) {
       print.success(`● ${_app_name} app created with success!`)
       print.highlight(
-        `- cd ${_app_name} Leave your star at: https://github.com/andremalveira/create-html5-app`
+        `- cd ${_app_name} 
+⭐ Leave your star at: https://github.com/andremalveira/create-html5-app`
       )
     }
 
@@ -55,7 +56,11 @@ const command = {
         await new Promise((resolve) => {
           got
             .stream(mainUrl)
-            .pipe(x({ cwd: _app_dir, strip: 1 }, [`${repo.repo}-main`]))
+            .pipe(
+              x({ cwd: _app_dir, strip: 3, path: 'create-html5-app' }, [
+                `${repo.repo}-main`,
+              ])
+            )
             .on('finish', () => resolve())
         })
 

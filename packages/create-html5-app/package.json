@@ -25,7 +25,7 @@
     "@octokit/rest": "^19.0.4",
     "gluegun": "latest",
     "got": "^12.4.1",
-    "tart": "^0.3.0"
+    "tar": "^6.1.11"
   },
   "devDependencies": {
     "copyfiles": "^2.4.1",
