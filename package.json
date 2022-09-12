@@ -1,0 +1,23 @@
+{
+  "name": "create-html5-app",
+  "version": "1.0.0",
+  "description": "Create a new simple project in HTML5",
+  "main": "index.js",
+  "private": "true",
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "André Malveira",
+  "license": "ISC",
+  "dependencies": {
+    "yarn": "^1.22.18"
+  },
+  "devDependencies": {
+    
+  }
+}
