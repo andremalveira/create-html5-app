@@ -61,7 +61,7 @@ const command = {
           got
             .stream(mainUrl)
             .pipe(
-              x({ cwd: _app_dir, strip: 4 }, [
+              x({ cwd: _app_dir, strip: 3 }, [
                 `${repo.repo}-main/examples/HTML5/`,
               ])
             )
