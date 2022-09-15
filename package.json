@@ -1,7 +1,12 @@
 {
-  "name": "create-html5-app",
+  "name": "monorepo-create-html5-app",
   "version": "1.0.0",
   "description": "Create a new simple project in HTML5",
+  "author": {
+    "name": "André Malveira",
+    "email": "andremalveira.dev@gmail.com",
+    "url":"https://github.com/andremalveira"
+  },
   "main": "index.js",
   "private": "true",
   "workspaces": {
@@ -12,7 +17,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "André Malveira",
   "license": "ISC",
   "dependencies": {
     "yarn": "^1.22.18"

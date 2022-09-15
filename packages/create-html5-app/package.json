@@ -1,8 +1,14 @@
 {
   "name": "create-html5-app",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Create a new simple project in HTML5 with one command.",
-  "private": true,
+  "repository": "https://github.com/andremalveira/create-html5-app",
+  "author": {
+    "name": "André Malveira",
+    "email": "andremalveira.dev@gmail.com",
+    "url":"https://github.com/andremalveira"
+  },
+  "private": false,
   "bin": {
     "create-html5-app": "bin/create-html5-app"
   },
