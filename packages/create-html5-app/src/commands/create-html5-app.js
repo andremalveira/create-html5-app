@@ -15,11 +15,15 @@ const command = {
 
     //print.info(`first params ${_app_name}`)
     function end(_app_name, pm) {
-      print.success(`● ${_app_name} app created with success!`)
-      print.highlight(
-        `- cd ${_app_name} 
-⭐ Leave your star at: https://github.com/andremalveira/create-html5-app`
-      )
+      print.success(`√ ${_app_name} app created with success!`)
+
+      print.highlight(`   `)
+      print.muted(`> cd ${_app_name}`)
+      print.highlight(`   `)
+
+      print.highlight(`⭐ Leave your star at:`)
+      print.highlight(`   https://github.com/andremalveira/create-html5-app`)
+      print.highlight(`   `)
     }
 
     async function validate(owner, repo, paths, _app_name) {
@@ -57,8 +61,8 @@ const command = {
           got
             .stream(mainUrl)
             .pipe(
-              x({ cwd: _app_dir, strip: 3, path: 'create-html5-app' }, [
-                `${repo.repo}-main`,
+              x({ cwd: _app_dir, strip: 4 }, [
+                `${repo.repo}-main/examples/HTML5/`,
               ])
             )
             .on('finish', () => resolve())
@@ -98,7 +102,7 @@ const command = {
     }
 
     //@starting
-    print.highlight(`● Building ${_app_name}`)
+    print.highlight(`√ Building ${_app_name} app`)
     await create_app()
   },
 }
