@@ -3,38 +3,66 @@ const repo = require('../repo.config.json')
 const command = {
   name: 'create-html5-app',
   run: async (toolbox) => {
-    const { print, parameters, filesystem } = toolbox
+    const { print, parameters, filesystem, template, create_page } = toolbox
     const pm = (process.env.npm_config_user_agent || '').indexOf('yarn') === 0
 
-    //@Current Directory
-    //const _current_dir = filesystem.cwd()
+    //variables
+    let APP_NAME = parameters.first
+    let OPTIONS = await check_options(parameters.options)
 
-    //@First Parameter = App Name
-    let _app_name = parameters.first
-    let _app_name_exists = _app_name ? await filesystem.exists(_app_name) : null
+    let _app_name_exists = APP_NAME ? await filesystem.exists(APP_NAME) : null
 
-    //print.info(`first params ${_app_name}`)
-    function end(_app_name, pm) {
-      print.success(`√ ${_app_name} app created with success!`)
+    if (OPTIONS.page) {
+      await create_page(OPTIONS)
+      return
+    } else {
+      //@verifications
+      if (!APP_NAME) {
+        print.error(`App name must be specified!`)
+        return
+      }
+      if (_app_name_exists == 'dir') {
+        print.error(`An app with that name already exists!`)
+        return false
+      }
 
-      print.highlight(`   `)
-      print.muted(`> cd ${_app_name}`)
-      print.highlight(`   `)
-
-      print.highlight(`⭐ Leave your star at:`)
-      print.highlight(`   https://github.com/andremalveira/create-html5-app`)
-      print.highlight(`   `)
+      //@starting
+      print.highlight(`√ Building ${APP_NAME} app`)
+      //await create_app()
+      await validate(repo.owner, repo.repo, false, APP_NAME)
     }
 
-    async function validate(owner, repo, paths, _app_name) {
+    //functions
+    async function check_options(options) {
+      let obj = new Object()
+
+      if (options) {
+        if (options.example || options.e) {
+          let example_v = options.example || options.e
+
+          obj.example = true
+          obj.example_name = typeof example_v === 'string' ? example_v : null
+        }
+        if (options.page || options.p) {
+          let page_v = options.page || options.p
+
+          obj.page = true
+          obj.page_name = typeof page_v === 'string' ? page_v : null
+        }
+      }
+      return obj
+    }
+
+    async function validate(owner, repo, paths, _app_name, option) {
       const { Octokit } = require('@octokit/rest')
       const _app_dir = filesystem.dir(_app_name).cwd()
       const spinner = toolbox.print.spin('Validating files...')
+
       try {
-        await new Octokit().repos.getContent({
+        const _repo = await new Octokit().repos.getContent({
           owner,
           repo,
-          paths,
+          path: option.example ? `examples/${option.example_name}` : '',
         })
 
         spinner.succeed('Validated files')
@@ -42,7 +70,13 @@ const command = {
       } catch (error) {
         spinner.fail('Validating Failed!')
         filesystem.remove(_app_dir)
-        print.error(`× Error: ${error.message} - Status ${error.status}`)
+
+        if (option.example) {
+          print.error(`× Error: Example '${option.example_name}' not found!`)
+        } else {
+          print.error(`× Error: ${error.message} - Status ${error.status}`)
+        }
+
         return false
       }
     }
@@ -62,7 +96,7 @@ const command = {
             .stream(mainUrl)
             .pipe(
               x({ cwd: _app_dir, strip: 3 }, [
-                `${repo.repo}-main/examples/HTML5/`,
+                `${repo.repo}-main/examples/html5/`,
               ])
             )
             .on('finish', () => resolve())
@@ -81,29 +115,46 @@ const command = {
     async function create_app() {
       let validated, downloaded
 
-      validated = await validate(repo.owner, repo.repo, false, _app_name)
+      validated = await validate(
+        repo.owner,
+        repo.repo,
+        false,
+        APP_NAME,
+        OPTIONS
+      )
 
       if (validated) {
-        downloaded = await download(_app_name)
+        downloaded = await download(APP_NAME)
       }
       if (downloaded) {
-        end(_app_name, pm)
+        const option = await check_options(OPTIONS)
+        if (option.example) {
+          let installed = await toolbox.install_dependencies(APP_NAME, pm)
+          if (installed) end(APP_NAME, pm)
+        } else {
+          end(APP_NAME, pm)
+        }
       }
     }
 
-    //@verifications
-    if (!_app_name) {
-      print.error(`App name must be specified!`)
-      return
-    }
-    if (_app_name_exists == 'dir') {
-      print.error(`An app with that name already exists!`)
-      return false
-    }
+    async function end(_app_name, pm) {
+      const option = await check_options(OPTIONS)
 
-    //@starting
-    print.highlight(`√ Building ${_app_name} app`)
-    await create_app()
+      print.success(`√ ${_app_name} app created with success!`)
+
+      print.highlight(`   `)
+      print.muted(`> cd ${_app_name}`)
+      if (option.example) {
+        print.muted(`> npm run dev`)
+        print.muted(`> #or`)
+        print.muted(`> yarn dev`)
+      }
+      print.highlight(`   `)
+
+      print.highlight(`⭐ Leave your star at:`)
+      print.highlight(`   https://github.com/andremalveira/create-html5-app`)
+      print.highlight(`   `)
+    }
   },
 }
 

@@ -11,17 +11,12 @@
   "private": "true",
   "workspaces": {
     "packages": [
-      "packages/*"
+      "packages/*",
+      "examples/*"
     ]
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "yarn": "^1.22.18"
-  },
-  "devDependencies": {
-    
   }
 }

@@ -6,11 +6,21 @@
   "author": {
     "name": "André Malveira",
     "email": "andremalveira.dev@gmail.com",
-    "url":"https://github.com/andremalveira"
+    "url": "https://github.com/andremalveira"
   },
+  "keywords": [
+    "cha",
+    "html",
+    "html5",
+    "html-cli",
+    "html5-cli",
+    "create-html-app",
+    "create-html5-app"
+  ],
   "private": false,
   "bin": {
-    "create-html5-app": "bin/create-html5-app"
+    "create-html5-app": "bin/create-html5-app",
+    "cha": "bin/cha"
   },
   "scripts": {
     "format": "eslint \"**/*.{js,jsx}\" --fix && prettier \"**/*.{js,jsx,json}\" --write",
@@ -31,6 +41,7 @@
     "@octokit/rest": "^19.0.4",
     "gluegun": "latest",
     "got": "^12.4.1",
+    "os-locale": "^6.0.2",
     "tar": "^6.1.11"
   },
   "devDependencies": {

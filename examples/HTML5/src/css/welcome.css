@@ -16,6 +16,11 @@
   user-select: none;
   pointer-events: none;
 }
+#_welcome img {
+  width: 10rem;
+  margin: auto;
+  display: flex;
+}
 #_welcome h2 {
   font-weight: normal;
   text-transform: uppercase;

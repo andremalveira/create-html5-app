@@ -2,7 +2,9 @@
 <p align="center"><img width="100" src="https://andremalveira.github.io/create-html5-app/examples/HTML5/src/assets/img/html.icon.svg"></p>
 
 # <p align="center">create-html5-app</p>
+### <p align="center">Template with scss</p>
 
+<br/> 
 
 <p align="center">
 <a href="#details">
@@ -12,26 +14,13 @@
 </p>
 <p align="center">Create a new simple project in HTML5 with one command.</p>
 
-<br/> 
 
-### Install
+### Start
 ```
-npm i -g create-html5-app
+npm run dev
+#or 
+yarn dev
 ```
-
-OR:
-
-### Usage
-
-```
-npx create-html5-app app-name
-```
-
-```
-cd app-name
-```
-
-<br/> 
 
 ### Folder Structure
 ```bash
@@ -39,10 +28,11 @@ app-name
 ├──📂src
 │   └──📂assets 
 │       └──📁img 
-│   └──📂css 
-│       └──📄app.css  
+│   └──📁css 
 │   └──📂js    
-│       └──📄app.js         
+│       └──📄app.js 
+│   └──📂scss 
+│       └──📄app.scss          
 ├──📄index.html
 ├──📄README.md 
 ```

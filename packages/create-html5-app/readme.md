@@ -14,14 +14,19 @@
 
 <br/> 
 
-### Install
+### Global Install 
 ```
 npm i -g create-html5-app
 ```
-
+```
+create-html5-app app-name
+```
+```
+cd app-name
+```
 OR:
 
-### Usage
+### Using npx
 
 ```
 npx create-html5-app app-name
@@ -29,10 +34,34 @@ npx create-html5-app app-name
 
 ```
 cd app-name
-npm run dev
-#or
-yarn run dev
 ```
+
+<br/> 
+
+
+### Commands  
+
+| Command  | Alias  | Description           |
+| ------------------ | ------ | --------------------- |
+| create-html5-app   | cha    | main command          |
+
+| Options  | Alias  | Description           |
+| ------------------ | ------ | --------------------- |
+| --example example-name | --e  | create app based on an example  |
+| --page page-name   | --p    | create new page in html  |
+
+<br/> 
+
+#### How to use (command example):
+
+```css
+create-html5-app app-name --example with-scss
+
+create-html5-app --page about 
+//or --page pages/about
+```
+
+> use npx before create-html5-app if you haven't installed the cli globally
 
 <br/> 
 

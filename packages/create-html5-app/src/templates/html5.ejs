@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title><%= props.name %> page</title>
+
+    <!-- Metas -->
+    <meta name="description" content="Create a new simple project in HTML5">
+
+      <!-- facebook -->
+      <meta property="og:title" content="<%= props.name %> page">
+      <meta property="og:description" content="Create a new simple project in HTML5">
+      <meta property="og:image" content="">
+
+      <!-- twitter -->
+      <meta name="twitter:title" content="<%= props.name %> page">
+      <meta name="twitter:description" content="Create a new simple project in HTML5">
+      <meta name="twitter:image" content="">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#E44D26">
+
+    <!-- Icons -->
+    <link rel="icon" href="<%= props.path %>src/assets/img/html.icon.svg">
+    <link rel="apple-touch-icon" href="<%= props.path %>src/assets/img/html.icon.svg">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="<%= props.path %>src/css/app.css">
+  </head>
+
+  <body>
+
+    <div id="_welcome">
+      <div class="wrapper">
+        <h1><%= props.name %></h1>
+        <p>HTML5 page example</p>
+      </div>
+    </div>
+
+    <!-- JavaScript tags -->
+    <script src="" type="module"></script>
+  </body>
+</html>

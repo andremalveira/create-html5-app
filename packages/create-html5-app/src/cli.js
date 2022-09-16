@@ -9,7 +9,13 @@ async function run(argv) {
     .brand('create-html5-app')
     .src(__dirname)
     .plugins('./node_modules', { matching: 'create-html5-app-*', hidden: true })
-    .help() // provides default for help, h, --help, -h
+    .help({
+      name: 'help',
+      alias: 'h',
+      hidden: true,
+      dashed: true,
+      run: (toolbox) => toolbox.help(),
+    }) // provides default for help, h, --help, -h
     .version() // provides default for version, v, --version, -v
     .create()
   // enable the following method if you'd like to skip loading one of these core extensions
