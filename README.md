@@ -9,7 +9,7 @@
 <p align="center">
 <a href="#details">
 <img src="https://img.shields.io/badge/License-MIT-E44D26?" alt="License-MIT"/>&nbsp;&nbsp;
-<img src="https://img.shields.io/badge/npm-v1.1.0-E44D26?" alt="NPM Version"/></a>
+<img src="https://img.shields.io/badge/npm-v1.1.1-E44D26?" alt="NPM Version"/></a>
 
 </p>
 <p align="center">Create a new simple project in HTML5 with one command.</p>
