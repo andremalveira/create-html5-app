@@ -41,6 +41,10 @@ OR:
 ```
 npx create-html5-app name
 ```
+```
+cd app-name
+```
+> ⚠️ There is no command to start the project as it is a simple example in html5.
 
 ```
 cd name
@@ -93,3 +97,7 @@ create-html5-app --page about
 
 Create HTML5 App is licensed under the [MIT License](https://github.com/andremalveira/create-html5-app/blob/main/packages/create-html5-app/LICENSE).
 
+<<<<<<< HEAD
+=======
+##### MIT License.
+>>>>>>> 0aab8bf883e46b4191ea9f3147c4a46862338bd3

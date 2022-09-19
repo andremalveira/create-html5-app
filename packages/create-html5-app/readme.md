@@ -43,8 +43,13 @@ npx create-html5-app name
 ```
 
 ```
+<<<<<<< HEAD
 cd name
+=======
+cd app-name
+>>>>>>> 0aab8bf883e46b4191ea9f3147c4a46862338bd3
 ```
+> ⚠️ There is no command to start the project as it is a simple example in html5.
 
 <br/> 
 
