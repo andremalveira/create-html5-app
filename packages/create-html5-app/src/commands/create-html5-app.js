@@ -10,6 +10,11 @@ const command = {
     let APP_NAME = parameters.first
     let OPTIONS = await toolbox.get_options(parameters.options)
 
+    if (!APP_NAME && Object.keys(parameters.options).length == 0) {
+      toolbox.about()
+      return
+    }
+
     if (OPTIONS.page) {
       await toolbox.create_page(OPTIONS)
       return

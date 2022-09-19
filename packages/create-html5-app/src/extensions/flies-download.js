@@ -6,7 +6,7 @@ module.exports = async (toolbox) => {
     const mainUrl = `https://codeload.github.com/${config.owner}/${config.repo}/tar.gz/${config.branch}`
 
     let example_name =
-      option && option.example ? option.example : config.defaultExample
+      option && option.example ? option.example_name : config.defaultExample
 
     const { default: got } = await import('got')
     const { x } = require('tar')
@@ -20,7 +20,7 @@ module.exports = async (toolbox) => {
           .stream(mainUrl)
           .pipe(
             x({ cwd: _app_dir, strip: 3}, 
-              [`${config.repo}-${config.branch}/examples/with-scss`]
+              [`${config.repo}-${config.branch}/examples/${example_name}`]
             )
           )
           .on('finish', () => {
@@ -31,6 +31,15 @@ module.exports = async (toolbox) => {
       let hasFiles = await toolbox.exists(_app_dir);
       if(hasFiles.dir_exists && hasFiles.dir_has_files) {
         spinner.succeed('Downloaded files')
+        
+        if(option && option.example){
+          await toolbox.updatePackage(
+            _app_dir+'/package.json',
+            'name', _app_name
+          )
+        }
+
+
         return true
       } else {
         let error = new Error("No files found")

@@ -9,10 +9,18 @@
 <p align="center">
 <a href="#details">
 <img src="https://img.shields.io/badge/License-MIT-E44D26?" alt="License-MIT"/>&nbsp;&nbsp;
-<img src="https://img.shields.io/badge/npm-v1.0.0-E44D26?" alt="NPM Version"/></a>
+<img src="https://img.shields.io/badge/npm-v1.1.0-E44D26?" alt="NPM Version"/></a>
 
 </p>
 <p align="center">Create a new simple project in HTML5 with one command.</p>
+
+<br/> 
+
+### Versions:
+
+- v1.0.0 - [Realese]: Create simple HTML5 structure <br/>
+- v1.1.0 - [Feature]: Added cli options and second html5 example 
+
 
 <br/> 
 
@@ -53,6 +61,7 @@ cd name
 | ------------------ | ------ | --------------------- |
 | --example name | --e  | create app based on an [example](https://github.com/andremalveira/create-html5-app/tree/main/examples)  |
 | --page name   | --p    | create new page in html  |
+| --git              | --g    | Initialize git|
 
 <br/> 
 
@@ -78,21 +87,9 @@ create-html5-app --page about
 
 <br/> 
 
-### Folder Structure
-```bash
-app-name
-├──📂src
-│   └──📂assets 
-│       └──📁img 
-│   └──📂css 
-│       └──📄app.css  
-│   └──📂js    
-│       └──📄app.js         
-├──📄index.html
-├──📄README.md 
-```
+
 
 ### License
 
-create-html5-app is licensed under the MIT License.
+Create HTML5 App is licensed under the [MIT License](https://github.com/andremalveira/create-html5-app/blob/main/packages/create-html5-app/LICENSE).
 

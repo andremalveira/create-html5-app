@@ -22,6 +22,7 @@ module.exports = async (toolbox) => {
       ['', '', ''],
       ['--example example-name', '-e', 'create app based on an example'],
       ['--page page-name', '-p', 'create new page in html'],
+      ['--git', '-g', 'Initialize git'],
     );
     print.muted(table.toString());
   

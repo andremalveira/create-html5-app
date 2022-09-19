@@ -2,30 +2,26 @@
 module.exports = async (toolbox) => {
   const { print, filesystem } = toolbox
 
-  toolbox.install_dependencies = async (_app_name, pm, callback) => {
+  toolbox.gitInit = async (_app_name, callback = () => {}) => {
     const { promisify } = require('util')
     const { exec: defaultExec } = require('child_process')
     const exec = promisify(defaultExec)
     const cwd = filesystem.dir(_app_name).cwd()
 
-    const spinner = toolbox.print.spin(
-      'Installing dependencies. This might take a couple of minutes.'
-    )
-
     await exec(
-      `${pm ? 'yarn' : 'npm i'}`,
+      `git init`,
       {cwd},
       (error, stdout, stderr) => {
         if (error) {
-          spinner.fail('Install dependencies Failed!')
+          print.error('git init Failed!')
           print.error(`× Error: ${error.message}`)
           return false
         }
         if (stderr) {
-          spinner.fail('Install dependencies Failed!')
+          print.error('git init Failed!')
           return false
         }
-        spinner.succeed('Installed Dependencies') 
+        print.success('Git initialized!') 
         callback({success: true})
         return true
       }
