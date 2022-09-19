@@ -13,7 +13,7 @@ module.exports = async (toolbox) => {
     )
 
     await exec(
-      `${pm ? 'yarn' : 'npm i'}`,
+      `${pm ? 'yarn --force' : 'npm i --force'}`,
       {cwd},
       (error, stdout, stderr) => {
         if (error) {
@@ -21,10 +21,10 @@ module.exports = async (toolbox) => {
           print.error(`× Error: ${error.message}`)
           return false
         }
-        if (stderr) {
+/*         if (stderr) {
           spinner.fail('Install dependencies Failed!')
           return false
-        }
+        } */
         spinner.succeed('Installed Dependencies') 
         callback({success: true})
         return true
