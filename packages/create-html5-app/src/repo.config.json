@@ -1,6 +1,7 @@
 {
   "owner": "andremalveira",
   "repo": "create-html5-app",
-  "branch": "main",
-  "paths": ""
+  "branch": "dev",
+  "paths": "",
+  "defaultExample": "HTML5"
 }

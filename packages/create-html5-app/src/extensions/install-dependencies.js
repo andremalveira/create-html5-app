@@ -14,8 +14,8 @@ module.exports = async (toolbox) => {
       'Installing dependencies. This might take a couple of minutes.'
     )
 
-    await exec(
-      `${pm ? 'yarn' : 'npm'} i `,
+    false && await exec(
+      `${pm ? 'yarn' : 'npm i'}`,
       {cwd,},
       (error, stdout, stderr) => {
         if (error) {

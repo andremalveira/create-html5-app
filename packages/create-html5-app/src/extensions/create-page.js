@@ -15,8 +15,8 @@ module.exports = async (toolbox) => {
       return
     }
 
-    let page_name_exists = await filesystem.exists(`${compete_path}${!hasHtml ? '/index.html' : ''}`)
-    if (page_name_exists == 'dir' || page_name_exists == 'file') {
+    let page_name_exists = await toolbox.exists(`${compete_path}${!hasHtml ? '/index.html' : ''}`)
+    if (page_name_exists.dir_exists || page_name_exists.file_exists) {
       print.error(`An page with that name already exists!`)
       return
     }
