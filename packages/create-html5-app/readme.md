@@ -42,13 +42,10 @@ OR:
 npx create-html5-app name
 ```
 ```
-cd app-name
-```
-> ⚠️ There is no command to start the project as it is a simple example in html5.
-
-```
 cd name
 ```
+
+> ⚠️ There is no command to start the project as it is a simple example in html5.
 
 <br/> 
 
